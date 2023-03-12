@@ -1,5 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 const util = require("../../../utility/util.js")
+const timeout = 30000;
 
 module.exports = {
     config: {
@@ -49,11 +50,12 @@ module.exports = {
                 modified = true;
                 }
                 if (modified) {
-                    const logmsg = '[EN-PROFILE-EDIT] by ' + message.author.id + ' modified with ' + profile;
+                    const logmsg = '[EN-PROFILE-EDIT] by ' + message.author.id + ' modified with:';
                     console.log(logmsg.brightGreen);
+                    console.log(profile);
                     db.set(`fgoProfile_En_${message.author.id}`, JSON.stringify(profile)).then(() => {
                         message.channel.send('Profile saved successfully');
-                        util.fgoProfiles(message.author, profile, message, 30000, true);
+                        util.fgoProfiles(message.author, profile, message, timeout, true);
                     });
                 } else message.channel.send(`Error: No argument provided. Please consult \`${prefix}help en-profile-edit\` for more information.`);
             });

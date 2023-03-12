@@ -50,8 +50,9 @@ module.exports = {
                 modified = true;
                 }
                 if (modified) {
-                    const logmsg = '[JP-PROFILE-EDIT] by ' + message.author.id + ' modified with ' + profile;
+                    const logmsg = '[JP-PROFILE-EDIT] by ' + message.author.id + ' modified with:';
                     console.log(logmsg.brightGreen);
+                    console.log(profile);
                     db.set(`fgoProfile_Jp_${message.author.id}`, JSON.stringify(profile)).then(() => {
                         message.channel.send('Profile saved successfully');
                         util.fgoProfiles(message.author, profile, message, timeout, true);
