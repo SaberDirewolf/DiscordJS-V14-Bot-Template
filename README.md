@@ -3,6 +3,8 @@ A Discord bot project made with the npm package discord.js version 14 and it han
 
 **Original Discord Bot template made [**T.F.A#7524**](https://github.com/SaberDirewolf/DiscordJS-V14-Bot-Template)** <br>
 
+## Requirements
+
 • **Node.js v16.9.0 or above.** <a href="https://nodejs.org/en/"><img src="https://img.shields.io/badge/v16.9.0-100000?style=flat&logo=node.js&label=Node.js&color=blue&logoColor=lime"></a><br>
 • **Discord.js v14.3.0 or above**. <a href="https://www.npmjs.com/package/discord.js"><img src="https://img.shields.io/badge/v14.3.0-100000?style=flat&logo=npm&label=Discord.js&color=blue"></a>
 
@@ -15,6 +17,7 @@ A Discord bot project made with the npm package discord.js version 14 and it han
 • 6- Go to `OAuth2` section, and then `URL Generator`. Select the scopes `bot` and `application.commands`, and then scroll down to **Bot Permissions**, select `Administrator` (For all guild permissions). Copy the link that is generated below, open a new browser tab, paste the URL, choose a server where your bot will be in, verify yourself that you are not a robot, and Done!
 
 # Credits && Special thanks to the following:
-DiscordJS V14 Bot Template Project originally coded by: [**T.F.A#7524**](https://github.com/SaberDirewolf/DiscordJS-V14-Bot-Template) <br>
-discordjs-pagination by [acegoal07](https://github.com/acegoal07/discordjs-pagination)
+[DiscordJS V14 Bot Template Project originally coded by: **T.F.A#7524**](https://github.com/SaberDirewolf/DiscordJS-V14-Bot-Template) <br>
+[discordjs-pagination by acegoal07](https://github.com/acegoal07/discordjs-pagination) <br>
+[nobuBot by aister](https://github.com/aister/nobuBot)
 
