@@ -2,7 +2,7 @@ const { EmbedBuilder, PermissionsBitField, codeBlock } = require("discord.js");
 const client = require("../../index");
 const config = require("../../config/config.js");
 const { QuickDB } = require("quick.db");
-const db = new QuickDB();
+const db = new QuickDB({ filePath: "db/db.sqlite" });
 
 module.exports = {
   name: "messageCreate"
