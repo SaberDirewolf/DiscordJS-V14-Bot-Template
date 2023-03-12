@@ -1,0 +1,9 @@
+node_modules
+.env
+config/config.js
+package-lock.json
+.eslintrc.json
+.vscode
+.vscode/settings.json
+json.sqlite
+config/config.js

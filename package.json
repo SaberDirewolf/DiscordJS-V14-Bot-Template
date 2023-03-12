@@ -1,19 +1,21 @@
 {
-  "name": "discordjs-v14-bot-template",
+  "name": "MandricardoBot",
   "version": "14.0.0",
-  "description": "A Discord Bot template built by T.F.A#7524!",
+  "description": "A Discord Bot for FGO Friend ID Profile Handling",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "T.F.A#7524",
+  "author": "Dire",
   "license": "ISC",
   "dependencies": {
-    "better-sqlite3": "^7.6.2",
+    "@acegoal07/discordjs-pagination": "^1.5.0",
+    "better-sqlite3": "^8.2.0",
     "colors": "^1.4.0",
     "discord-api-types": "^0.36.2",
     "discord.js": "^14.5.0",
+    "mathjs": "^11.6.0",
     "moment": "^2.29.4",
     "mongoose": "^6.4.4",
     "ms": "^2.1.3",

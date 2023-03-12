@@ -4,6 +4,7 @@ const moment = require('moment');
 module.exports = {
     name: "User Info",
     type: 2,
+    permissions: ['Administrator'],
     run: async (client, interaction, config, db) => {
 
         const user = interaction.guild.members.cache.get(interaction.targetId);
