@@ -7,7 +7,6 @@ module.exports = (client, config) => {
   fs.readdirSync('./commands/prefix/').forEach(dir => {
     const commands = fs.readdirSync(`./commands/prefix/${dir}`).filter(file => file.endsWith('.js'));
     for (let file of commands) {
-
       let pull = require(`../commands/prefix/${dir}/${file}`);
       if (pull.config.name) {
         client.prefix_commands.set(pull.config.name, pull);

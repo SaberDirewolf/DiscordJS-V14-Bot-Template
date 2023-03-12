@@ -30,13 +30,22 @@ function fgoProfiles(user, data, message, timeout, editedprofile) {
   {
     let img = null;    
     try {
-      if(eval(`data.support${i}`)) img = eval(`data.support${i}`); 
+      if(eval(`data.support${i}`)) {
+        img = eval(`data.support${i}`);
+        try {
+          const myURL = new URL(img);
+        } catch (error) {
+          img = null;
+        }
+      }
     } catch (exceptionVar) {
       console.error(`[CATCH] fgoProfiles no image found for support${i} `+ exceptionVar+''.red);
     } finally {
-      if(i == 1 || img || editedprofile) pages.push(fgoProfileEmbed(user, data, img));
+      if(img || editedprofile) pages.push(fgoProfileEmbed(user, data, img));
     }
   }
+
+  if (pages.length === 0) pages.push(fgoProfileEmbed(user, data, null));
   
   pagination.setPortal(message);
   pagination.setPageList(pages);

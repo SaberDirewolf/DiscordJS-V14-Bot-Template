@@ -15,8 +15,8 @@ module.exports = {
     permissions: ['SendMessages'],
     owner: false,
     run: async (client, message, args, prefix, config, db) => {
-    args = args.join(' ');
-    const attachments = message.attachments;
+        args = args.join(' ');
+        const attachments = message.attachments;
         if (args || attachments.at(0)) {
             db.get(`fgoProfile_En_${message.author.id}`).then(profile => {
                 if (profile) profile = JSON.parse(profile);
@@ -58,7 +58,7 @@ module.exports = {
                 } else message.channel.send(`Error: No argument provided. Please consult \`${prefix}help en-profile-edit\` for more information.`);
             });
         } else {
-            message.channel.send(`Error: No argument provided. Please consult \`${prefix}help profile-edit\` for more information.`);
+            message.channel.send(`Error: No argument provided. Please consult \`${prefix}help en-profile-edit\` for more information.`);
         }
     },
 };

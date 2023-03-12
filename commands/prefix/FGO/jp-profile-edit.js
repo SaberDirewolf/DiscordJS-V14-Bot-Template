@@ -1,5 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
-const util = require("../../../utility/util.js")
+const util = require("../../../utility/util.js");
+const timeout = 30000;
 
 module.exports = {
     config: {
@@ -15,8 +16,8 @@ module.exports = {
     permissions: ['SendMessages'],
     owner: false,
     run: async (client, message, args, prefix, config, db) => {
-    args = args.join(' ');
-    const attachments = message.attachments;
+        args = args.join(' ');
+        const attachments = message.attachments;
         if (args || attachments.at(0)) {
             db.get(`fgoProfile_Jp_${message.author.id}`).then(profile => {
                 if (profile) profile = JSON.parse(profile);
@@ -53,12 +54,12 @@ module.exports = {
                     console.log(logmsg.brightGreen);
                     db.set(`fgoProfile_Jp_${message.author.id}`, JSON.stringify(profile)).then(() => {
                         message.channel.send('Profile saved successfully');
-                        util.fgoProfiles(message.author, profile, message, 30000, true);
+                        util.fgoProfiles(message.author, profile, message, timeout, true);
                     });
                 } else message.channel.send(`Error: No argument provided. Please consult \`${prefix}help jp-profile-edit\` for more information.`);
             });
         } else {
-            message.channel.send(`Error: No argument provided. Please consult \`${prefix}help profile-edit\` for more information.`);
+            message.channel.send(`Error: No argument provided. Please consult \`${prefix}info jp-profile-edit\` for more information.`);
         }
     },
 };
