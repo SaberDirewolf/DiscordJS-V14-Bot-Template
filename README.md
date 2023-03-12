@@ -16,6 +16,6 @@ A Discord bot project made with the npm package discord.js version 14 and it han
 • 6- Go to `OAuth2` section, and then `URL Generator`. Select the scopes `bot` and `application.commands`, and then scroll down to **Bot Permissions**, select `Administrator` (For all guild permissions). Copy the link that is generated below, open a new browser tab, paste the URL, choose a server where your bot will be in, verify yourself that you are not a robot, and Done!
 
 # Credits && Special thanks to the following:
-DiscordJS V14 Bot Template Project originally coded by: **T.F.A#7524**
+DiscordJS V14 Bot Template Project originally coded by: [**T.F.A#7524**](https://github.com/SaberDirewolf/DiscordJS-V14-Bot-Template) <br>
 discordjs-pagination by [acegoal07](https://github.com/acegoal07/discordjs-pagination)
 
