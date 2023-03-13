@@ -17,5 +17,5 @@ A Discord bot project for saving FGO profile for easy sharing using the latest D
 # Credits and Special thanks to the following:
 [DiscordJS V14 Bot Template Project originally coded by: **T.F.A#7524**](https://github.com/SaberDirewolf/DiscordJS-V14-Bot-Template) <br>
 [discordjs-pagination by acegoal07](https://github.com/acegoal07/discordjs-pagination) <br>
-[nobuBot by aister](https://github.com/aister/nobuBot)
-
+[nobuBot by aister](https://github.com/aister/nobuBot) <br>
+[Linux-str_replace tool by Samer-Al-iraqi](https://github.com/Samer-Al-iraqi/Linux-str_replace) <br>
