@@ -21,7 +21,7 @@ module.exports = {
         if (profile[0]) {
             profile[0] = JSON.parse(profile[0]);
             if (!profile.privacy || !args) {
-                util.fgoProfiles(profile[1], profile[0], message, 6000, false);
+                util.fgoProfiles(profile[1], profile[0], message, config.ProfileView.TIMEOUT, false);
             }
             else message.channel.send(`This player has set his privacy setting to true, thus the profile cannot be displayed`);
         } else if (args) message.channel.send(`Cannot find profile of provided player. Please recheck your arguments and try again`);

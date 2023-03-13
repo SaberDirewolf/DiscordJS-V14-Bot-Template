@@ -1,13 +1,12 @@
 const { EmbedBuilder } = require('discord.js');
 const util = require("../../../utility/util.js")
-const page = 3;
-const timeout = 30000;
+const page = 1;
 
 module.exports = {
     config: {
-        name: `jp-profile-edit-support-${page}`,
-        description: `Upload support to FGO JP Profile Page ${page} with direct attachment or a URL.`,
-        usage: `jp-profile-edit-support-${page} URL: [URL]`
+        name: `en-profile-edit-support-${page}`,
+        description: `Upload support to FGO EN Profile Page ${page} with direct attachment or a URL.`,
+        usage: `en-profile-edit-support-${page} URL: [URL]`
     },
     permissions: ['SendMessages'],
     owner: false,
@@ -15,7 +14,7 @@ module.exports = {
         args = args.join(' ');
         const attachments = message.attachments;
         if (args || attachments.at(0)) {
-            db.get(`fgoProfile_Jp_${message.author.id}`).then(profile => {
+            db.get(`fgoProfile_En_${message.author.id}`).then(profile => {
                 if (profile) profile = JSON.parse(profile);
                 else profile = {};
                 let modified = false;
@@ -37,17 +36,17 @@ module.exports = {
                     modified = true;
                 }
                 if (modified) {
-                    const logmsg = `[JP-PROFILE-EDIT-SUPPORT-${page}] by ` + message.author.id + ' modified with:';
+                    const logmsg = `[EN-PROFILE-EDIT-SUPPORT-${page}] by ` + message.author.id + ' modified with:';
                     console.log(logmsg.brightGreen);
                     console.log(profile);
-                    db.set(`fgoProfile_Jp_${message.author.id}`, JSON.stringify(profile)).then(() => {
+                    db.set(`fgoProfile_En_${message.author.id}`, JSON.stringify(profile)).then(() => {
                         message.channel.send('Profile saved successfully');
-                        util.fgoProfiles(message.author, profile, message, timeout, true);
+                        util.fgoProfiles(message.author, profile, message, config.EditProfileView.TIMEOUT, true);
                     });
-                } else message.channel.send(`Error: No argument provided. Please consult \`${prefix}info jp-profile-edit-support-${page}\` for more information.`);
+                } else message.channel.send(`Error: No argument provided. Please consult \`${prefix}info en-profile-edit-support-${page}\` for more information.`);
             });
         } else {
-            message.channel.send(`Error: No argument provided. Please consult \`${prefix}info jp-profile-edit-support-${page}\` for more information.`);
+            message.channel.send(`Error: No argument provided. Please consult \`${prefix}info en-profile-edit-support-${page}\` for more information.`);
         }
     },
 };

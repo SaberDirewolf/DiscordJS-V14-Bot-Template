@@ -1,6 +1,16 @@
 const { Client, Partials, Collection, GatewayIntentBits } = require('discord.js');
 const config = require('./config/config');
 const colors = require("colors");
+const execSync = require("child_process").execSync;
+const exitHook = require('async-exit-hook');
+
+execSync("./utility/create_support_page_commands_on_demand.sh " + config.SupportPages.PAGE_COUNT, {stdio: 'inherit'});
+
+exitHook(() => {
+	console.log('\n');
+	execSync("./utility/create_support_page_commands_on_demand.sh 0", {stdio: 'inherit'});
+	console.log('Exiting Bot');
+});
 
 // Creating a new client:
 const client = new Client({

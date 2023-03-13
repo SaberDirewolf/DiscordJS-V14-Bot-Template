@@ -8,3 +8,4 @@ package-lock.json
 json.sqlite
 config/config.js
 docker-compose.yml
+_output

@@ -55,7 +55,7 @@ module.exports = {
                     console.log(profile);
                     db.set(`fgoProfile_Jp_${message.author.id}`, JSON.stringify(profile)).then(() => {
                         message.channel.send('Profile saved successfully');
-                        util.fgoProfiles(message.author, profile, message, timeout, true);
+                        util.fgoProfiles(message.author, profile, message, config.EditProfileView.TIMEOUT, true);
                     });
                 } else message.channel.send(`Error: No argument provided. Please consult \`${prefix}help jp-profile-edit\` for more information.`);
             });
