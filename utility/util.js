@@ -50,8 +50,11 @@ function fgoProfiles(user, data, message, timeout, editedprofile, pageCount) {
   pagination.setPortal(message);
   pagination.setPageList(pages);
   pagination.setButtonList(buttons);
-  pagination.setTimeout(timeout); //900000
-  if(editedprofile) pagination.setProgressBar();
+  pagination.setTimeout(timeout);
+  if(editedprofile) {
+    pagination.setProgressBar();
+    pagination.enableAuthorIndependent();
+  }
   pagination.paginate();
 }
 
