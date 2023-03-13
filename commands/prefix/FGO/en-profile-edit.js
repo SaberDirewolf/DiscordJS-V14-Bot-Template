@@ -1,6 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const util = require("../../../utility/util.js")
-const timeout = 30000;
+const util = require("../../../utility/util.js");
 
 module.exports = {
     config: {
@@ -24,7 +23,15 @@ module.exports = {
                 else profile = {};
                 let modified = false;
                 let ignoreAttachments = false;
-                args = args.match(/((?:name)|(?:id)|(?:support)|(?:support1)|(?:support2)|(?:support3)|(?:support4)|(?:support5)|(?:support6)|(?:privacy)) ?: ?[^\|]+/gi);
+                let evaluateAttachExpression = "";
+                let evaluateArgsExpression = "args = args.match(/((?:name)|(?:id)|(?:support)|"
+                for(let i = 1; i <= config.SupportPages.PAGE_COUNT; i++) {
+                    evaluateArgsExpression += `(?:support${i})|`;
+                    evaluateAttachExpression += `"support${i}"`
+                    if(i != config.SupportPages.PAGE_COUNT) evaluateAttachExpression += "||";
+                }
+                evaluateArgsExpression += "(?:privacy)) ?: ?[^\|]+/gi)"
+                eval(evaluateArgsExpression);
                 if (args) {
                 args.forEach(item => {
                     item = item.split(':');
@@ -37,11 +44,11 @@ module.exports = {
                     if (item[1] == "false") profile.privacy = false;
                     else profile.privacy = true;
                     }
-                    else if (item[0] == ("support1"||"support2"||"support3"||"support4"||"support5"||"support6")) ignoreAttachments = true;
+                    else if (item[0] == (eval(evaluateAttachExpression))) ignoreAttachments = true;
                 });
                 }
                 if(attachments.at(0) && !ignoreAttachments) {
-                for(let i = 0; i < 6; i++)
+                for(let i = 0; i < config.SupportPages.PAGE_COUNT; i++)
                 {
                     if(attachments.at(i)){
                     eval(`profile.support${i+1} = attachments.at(${i}).url`);
@@ -55,12 +62,12 @@ module.exports = {
                     console.log(profile);
                     db.set(`fgoProfile_En_${message.author.id}`, JSON.stringify(profile)).then(() => {
                         message.channel.send('Profile saved successfully');
-                        util.fgoProfiles(message.author, profile, message, config.EditProfileView.TIMEOUT, true);
+                        util.fgoProfiles(message.author, profile, message, config.EditProfileView.TIMEOUT, true, config.SupportPages.PAGE_COUNT);
                     });
                 } else message.channel.send(`Error: No argument provided. Please consult \`${prefix}help en-profile-edit\` for more information.`);
             });
         } else {
-            message.channel.send(`Error: No argument provided. Please consult \`${prefix}help en-profile-edit\` for more information.`);
+            message.channel.send(`Error: No argument provided. Please consult \`${prefix}info en-profile-edit\` for more information.`);
         }
     },
 };

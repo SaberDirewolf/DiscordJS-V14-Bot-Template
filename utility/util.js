@@ -14,7 +14,7 @@ function fgoProfileEmbed(user, data, image) {
   return embed;
 }
 
-function fgoProfiles(user, data, message, timeout, editedprofile) {
+function fgoProfiles(user, data, message, timeout, editedprofile, pageCount) {
   const pagination = new Pagination();
   const buttons = [];
   const pages = [];
@@ -26,7 +26,7 @@ function fgoProfiles(user, data, message, timeout, editedprofile) {
   .setStyle(ButtonStyle.Secondary)
   .setEmoji('▶️'));
 
-  for(let i = 1; i < 7; i++)
+  for(let i = 1; i <= pageCount; i++)
   {
     let img = null;    
     try {

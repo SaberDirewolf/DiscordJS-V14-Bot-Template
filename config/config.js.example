@@ -3,7 +3,7 @@ module.exports = {
   Prefix: "?", // YOUR BOT PREFIX.
 
   Users: {
-    OWNERS: ["849413565487382578", "554029264492691476"] // THE BOT OWNERS ID.
+    OWNERS: ["", ""] // THE BOT OWNERS ID.
   },
 
   Handlers: {
@@ -13,6 +13,17 @@ module.exports = {
   Client: {
     TOKEN: "", // YOUR BOT TOKEN. (USE THIS ONLY IN VSCODE)
     ID: "" // YOUR BOT ID.
-  }
+  },
 
+  ProfileView: {
+		TIMEOUT: 900000 // FGO EN/JP-Profile Timeout period in ms (set to 15 mins here)
+	},
+
+	EditProfileView: {
+		TIMEOUT: 60000 // FGO EN/JP-Profile-Edit Timeout Period after someone edits their profile in ms (set to 1 min here)
+	},
+
+	SupportPages: {
+		PAGE_COUNT: 6 // Number of support pages to instantiate
+	}
 }

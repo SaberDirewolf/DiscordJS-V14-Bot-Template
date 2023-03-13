@@ -41,7 +41,7 @@ module.exports = {
                     console.log(profile);
                     db.set(`fgoProfile_En_${message.author.id}`, JSON.stringify(profile)).then(() => {
                         message.channel.send('Profile saved successfully');
-                        util.fgoProfiles(message.author, profile, message, config.EditProfileView.TIMEOUT, true);
+                        util.fgoProfiles(message.author, profile, message, config.EditProfileView.TIMEOUT, true, config.SupportPages.PAGE_COUNT);
                     });
                 } else message.channel.send(`Error: No argument provided. Please consult \`${prefix}info en-profile-edit-support-${page}\` for more information.`);
             });
