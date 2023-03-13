@@ -1,7 +1,5 @@
 # FGO Friend ID Discord bot 
-A Discord bot project made with the npm package discord.js version 14 and it handles Prefix and Slash commands, and it includes two Databases: MongoDB and Quick.DB! You can create many commands as you want to improve your Bot. <br>
-
-**Original Discord Bot template made [**T.F.A#7524**](https://github.com/SaberDirewolf/DiscordJS-V14-Bot-Template)** <br>
+A Discord bot project for saving FGO profile for easy sharing using the latest DiscordJS V14 (as of this writing). <br>
 
 ## Requirements
 
