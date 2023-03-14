@@ -14,6 +14,41 @@ A Discord bot project for saving FGO profile for easy sharing using the latest D
 • 5- Scroll down and enable the three disabled `Privileged Gateaway Intents` intents (`PRESENCE INTENT`, `SERVER MEMBERS INTENT`, and `MESSAGE CONTENT INTENT`).<br>
 • 6- Go to `OAuth2` section, and then `URL Generator`. Select the scopes `bot` and `application.commands`, and then scroll down to **Bot Permissions**, select `Administrator` (For all guild permissions). Copy the link that is generated below, open a new browser tab, paste the URL, choose a server where your bot will be in, verify yourself that you are not a robot, and Done!
 
+## Instructions
+1. Rename `config.js.example` to ``config.js` under `config/` directory. 
+2. Correctly fill out the fields, note the `MONGO` field is unused in this project, instead an SQLite DB is instantiated and used via the QuickDB package.
+
+## Run bot in a shell:
+
+```sh
+npm i
+node index.js
+```
+
+## Run bot in docker:
+Note since a `config.js` file is required containing your Discord bot's tokens, you have to adjust Dockerfile accordingly if you want to publish a Docker image.
+
+* Edit `docker-compose.yml` volume from `/path/to/volume` to the correct location you want the bot's database to presist it
+
+```sh
+docker compose up
+```
+### Remote deployment of Docker image
+* To build an image and deploy in a remote machine (change `~/` to another path if required)
+
+```sh
+sudo docker build . -t discord-bot
+sudo docker save -o ~/discord-bot.tar discord-bot
+```
+
+* Copy `discord-bot.tar` to remote machine 
+
+```sh
+sudo docker load -i /path/to/tar/discord-bot.tar
+```
+
+Can deploy bot accordingly after.
+
 # Credits and Special thanks to the following:
 [DiscordJS V14 Bot Template Project originally coded by: **T.F.A#7524**](https://github.com/SaberDirewolf/DiscordJS-V14-Bot-Template) <br>
 [discordjs-pagination by acegoal07](https://github.com/acegoal07/discordjs-pagination) <br>
