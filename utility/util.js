@@ -51,10 +51,7 @@ function fgoProfiles(user, data, message, timeout, editedprofile, pageCount) {
   pagination.setPageList(pages);
   pagination.setButtonList(buttons);
   pagination.setTimeout(timeout);
-  if(editedprofile) {
-    pagination.setProgressBar();
-    pagination.enableAuthorIndependent();
-  }
+  if(editedprofile) pagination.setProgressBar();
   pagination.paginate();
 }
 
